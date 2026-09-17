@@ -420,15 +420,14 @@ function setCloudUi() {
 }
 async function loginGoogle() {
   if (!fbAuth) return alert("Cloud non disponibile.");
+  const provider = new firebase.auth.GoogleAuthProvider();
+  provider.setCustomParameters({ prompt: "select_account" });
   try {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    await fbAuth.signInWithPopup(provider);
+    await fbAuth.signInWithRedirect(provider);
   } catch (e) {
-    try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      await fbAuth.signInWithRedirect(provider);
-    } catch (e2) {
-      alert("Login non riuscito. In Firebase → Authentication → Settings → Authorized domains aggiungi shipstatic.com");
+    try { await fbAuth.signInWithPopup(provider); }
+    catch (e2) {
+      alert("Login bloccato. Aggiungi bardiani.github.io nei domini autorizzati Firebase.");
     }
   }
 }
