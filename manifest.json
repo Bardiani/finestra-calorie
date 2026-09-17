@@ -1,0 +1,19 @@
+{
+  "name": "Finestra & Calorie",
+  "short_name": "Finestra",
+  "description": "Diario calorie per il digiuno intermittente",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0f1410",
+  "theme_color": "#0f1410",
+  "lang": "it",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
