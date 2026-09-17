@@ -400,6 +400,8 @@ try {
   firebase.initializeApp(firebaseConfig);
   fbAuth = firebase.auth();
   fbDb = firebase.firestore();
+  fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
+  fbAuth.getRedirectResult().catch(function () {});
 } catch (e) {}
 function cloudRef(uid) { return fbDb.collection("users").doc(uid); }
 function setCloudUi() {
